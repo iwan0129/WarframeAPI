@@ -1,5 +1,6 @@
 ﻿using System;
 using WarframeAPI.Data;
+using WarframeAPI.Data.GameEvents;
 
 namespace WarframeAPI
 {
@@ -7,7 +8,11 @@ namespace WarframeAPI
     {
         private static void Main(string[] args)
         {
-            Warframe warframe = API.Load();
+            API.ReadData(@"D:\test.json", out Warframe warframe);
+
+            API.ReadData(@"D:\test.json", out Nightwave nightWave);
+
+            API.ReadData(@"D:\test.json", out SteelPath steelPath);
 
             Console.WriteLine("qweqweqweqwe");
         }
