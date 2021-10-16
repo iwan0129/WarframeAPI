@@ -2,11 +2,11 @@
 using WarframeAPI.Data;
 using WarframeAPI.Data.GameEvents;
 
-namespace WarframeAPI
+namespace Test
 {
-    internal class Program
+    class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             API.ReadData(@"D:\test.json", out Warframe warframe);
 
