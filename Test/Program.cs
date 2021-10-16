@@ -8,11 +8,11 @@ namespace Test
     {
         private static void Main(string[] args)
         {
-            API.ReadData(out Warframe warframe);
+            API.Read(out Warframe warframe);
 
-            API.ReadData(out Nightwave nightWave, endPoint: "nightwave");
+            API.Read(out Nightwave nightWave, endPoint: "nightwave");
 
-            API.ReadData(out SteelPath steelPath);
+            API.Read(out SteelPath steelPath);
 
             Console.WriteLine("qweqweqweqwe");
         }

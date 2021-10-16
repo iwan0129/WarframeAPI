@@ -14,7 +14,7 @@ namespace WarframeAPI
             PropertyNameCaseInsensitive = true
         };
 
-        public static bool ReadData<T>(string jsonData, out T data)
+        public static bool Read<T>(string jsonData, out T data)
         {
             try
             {
@@ -34,13 +34,13 @@ namespace WarframeAPI
             }
         }
 
-        public static bool ReadData<T>(out T data, GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
+        public static bool Read<T>(out T data, GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
         {
             try
             {
                 using WebClient client = new();
 
-                return ReadData(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"), out data);
+                return Read(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"), out data);
             }
             catch
             {
