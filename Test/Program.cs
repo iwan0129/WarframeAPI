@@ -4,9 +4,9 @@ using WarframeAPI.Data.GameEvents;
 
 namespace Test
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             API.ReadData(@"D:\test.json", out Warframe warframe);
 
