@@ -8,7 +8,7 @@ namespace UnitTests
     public class ReadTests
     {
         [TestMethod]
-        public void TestRead()
+        public void ReadTest()
         {
             Warframe warframe = API.Read<Warframe>();
 
@@ -16,7 +16,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void TestReadWithEndpoint()
+        public void ReadWithEndpointTest()
         {
             Nightwave nightWave = API.Read<Nightwave>(endPoint: "nightwave");
 
@@ -24,7 +24,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void TestTryRead()
+        public void TryReadTest()
         {
             bool result = API.TryRead(out Nightwave nightWave);
 
@@ -32,7 +32,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void TestTryReadWithEndpoint()
+        public void TryReadWithEndpointTest()
         {
             bool result = API.TryRead(out Nightwave nightWave, endPoint: "nightwave");
 
