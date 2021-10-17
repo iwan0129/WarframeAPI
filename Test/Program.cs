@@ -8,13 +8,13 @@ namespace Test
     {
         private static void Main(string[] args)
         {
-            API.Read(out Warframe warframe);
+            Warframe warframe = API.Read<Warframe>();
 
-            API.Read(out Nightwave nightWave, endPoint: "nightwave");
+            Nightwave nightWave = API.Read<Nightwave>(endPoint: "nightwave");
 
-            API.Read(out SteelPath steelPath);
+            SteelPath steelPath = API.Read<SteelPath>();
 
-            Console.WriteLine("qweqweqweqwe");
+            var result = API.TryRead(out Arbitration arbitration);
         }
     }
 }

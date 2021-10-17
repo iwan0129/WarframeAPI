@@ -14,7 +14,37 @@ namespace WarframeAPI
             PropertyNameCaseInsensitive = true
         };
 
-        public static bool Read<T>(string jsonData, out T data)
+        public static T Read<T>(string jsonData)
+        {
+            try
+            {
+                JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
+
+                return JsonSerializer.Deserialize<T>(jsonDocument.GetPropertyJson(typeof(T).Name, out string jsonPropertyData)
+                    ? jsonPropertyData
+                    : jsonDocument.RootElement.GetRawText(), JsonOptions);
+            }
+            catch
+            {
+                return default;
+            }
+        }
+
+        public static T Read<T>(GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
+        {
+            try
+            {
+                using WebClient client = new();
+
+                return Read<T>(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"));
+            }
+            catch
+            {
+                return default;
+            }
+        }
+
+        public static bool TryRead<T>(string jsonData, out T data)
         {
             try
             {
@@ -34,13 +64,13 @@ namespace WarframeAPI
             }
         }
 
-        public static bool Read<T>(out T data, GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
+        public static bool TryRead<T>(out T data, GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
         {
             try
             {
                 using WebClient client = new();
 
-                return Read(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"), out data);
+                return TryRead(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"), out data);
             }
             catch
             {
