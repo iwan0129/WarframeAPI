@@ -5,7 +5,7 @@ namespace WarframeAPI.Utilities
 {
     public static class JsonUtilities
     {
-        public static bool GetPropertyJson(this JsonDocument jsonDocument, string propertyName, out string jsonData)
+        public static string GetPropertyJson(this JsonDocument jsonDocument, string propertyName)
         {
             JsonElement.ObjectEnumerator jsonEnumerator = jsonDocument.RootElement.EnumerateObject();
 
@@ -15,15 +15,11 @@ namespace WarframeAPI.Utilities
 
                 if (jsonProperty.Name.StartsWith(propertyName, StringComparison.OrdinalIgnoreCase))
                 {
-                    jsonData = jsonProperty.Value.GetRawText();
-
-                    return true;
+                    return jsonProperty.Value.GetRawText();
                 }
             }
 
-            jsonData = "";
-
-            return false;
-        }
+            return null;
+        }       
     }
 }

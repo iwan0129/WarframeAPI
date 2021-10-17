@@ -14,15 +14,15 @@ namespace WarframeAPI
             PropertyNameCaseInsensitive = true
         };
 
-        public static T Read<T>(string jsonData)
+        public static T Read<T>(string json)
         {
             try
             {
-                JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
+                JsonDocument jsonDocument = JsonDocument.Parse(json);
 
-                return JsonSerializer.Deserialize<T>(jsonDocument.GetPropertyJson(typeof(T).Name, out string jsonPropertyData)
-                    ? jsonPropertyData
-                    : jsonDocument.RootElement.GetRawText(), JsonOptions);
+                var jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
+
+                return JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
             }
             catch
             {
@@ -44,15 +44,15 @@ namespace WarframeAPI
             }
         }
 
-        public static bool TryRead<T>(string jsonData, out T data)
+        public static bool TryRead<T>(string json, out T data)
         {
             try
             {
-                JsonDocument jsonDocument = JsonDocument.Parse(jsonData);
+                JsonDocument jsonDocument = JsonDocument.Parse(json);
 
-                data = JsonSerializer.Deserialize<T>(jsonDocument.GetPropertyJson(typeof(T).Name, out string jsonPropertyData)
-                    ? jsonPropertyData
-                    : jsonDocument.RootElement.GetRawText(), JsonOptions);
+                var jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
+
+                data = JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
 
                 return true;
             }
