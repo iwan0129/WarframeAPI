@@ -20,6 +20,6 @@ namespace WarframeAPI.Utilities
             }
 
             return null;
-        }       
+        }
     }
 }

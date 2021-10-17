@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fb24692a-97f8-434e-8354-701423f9278a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>WarframeAPI</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)API.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Base\WorldBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\ConclaveChallenge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\DailyDeal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\Event.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\Fissure.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\FlashSale.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\GlobalUpgrade.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\Incursions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\InterimStep.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\Invasion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\InvasionFaction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\InvasionItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\InvasionReward.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\Mission.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\MissionVariant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\News.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\NightwaveChallenge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\Reward.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\SteelPathItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\SyndicateJob.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\SyndicateMission.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\Arbitration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\ConstructionProgress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\Nightwave.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\SentientOutposts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\Simaris.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\Sortie.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\SteelPath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\VoidTrader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GamePlatform.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\JsonUtilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Warframe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WorldState\Cambion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WorldState\Cetus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WorldState\Earth.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WorldState\Vallis.cs" />
+  </ItemGroup>
+</Project>

@@ -20,7 +20,7 @@ namespace WarframeAPI
             {
                 JsonDocument jsonDocument = JsonDocument.Parse(json);
 
-                var jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
+                string jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
 
                 return JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
             }
@@ -50,7 +50,7 @@ namespace WarframeAPI
             {
                 JsonDocument jsonDocument = JsonDocument.Parse(json);
 
-                var jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
+                string jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
 
                 data = JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
 

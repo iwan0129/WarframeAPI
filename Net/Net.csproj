@@ -5,6 +5,10 @@
     <TargetFramework>net5.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
+    <AssemblyName>WarframeAPI</AssemblyName>
+    <RootNamespace>Net</RootNamespace>
   </PropertyGroup>
+
+  <Import Project="..\WarframeAPI\WarframeAPI.projitems" Label="Shared" />
 
 </Project>

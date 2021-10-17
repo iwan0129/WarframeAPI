@@ -3,24 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarframeAPI", "WarframeAPI\WarframeAPI.csproj", "{442E9BAA-8256-47EE-953C-7A9DE318F99D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net", "Net\Net.csproj", "{F4FC7867-CA17-4CB6-9B63-1A6FE3C7141E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{B69FED86-484B-48CA-8C25-904E13CA4448}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WarframeAPI", "WarframeAPI\WarframeAPI.shproj", "{FB24692A-97F8-434E-8354-701423F9278A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{D167858E-A438-44C4-8ECD-E95AD13A2438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net Framework", "Net Framework\Net Framework.csproj", "{3AAFC436-00D9-4674-8105-7231F0496627}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		WarframeAPI\WarframeAPI.projitems*{3aafc436-00d9-4674-8105-7231f0496627}*SharedItemsImports = 4
+		WarframeAPI\WarframeAPI.projitems*{d167858e-a438-44c4-8ecd-e95ad13a2438}*SharedItemsImports = 4
+		WarframeAPI\WarframeAPI.projitems*{f4fc7867-ca17-4cb6-9b63-1a6fe3c7141e}*SharedItemsImports = 5
+		WarframeAPI\WarframeAPI.projitems*{fb24692a-97f8-434e-8354-701423f9278a}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{442E9BAA-8256-47EE-953C-7A9DE318F99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{442E9BAA-8256-47EE-953C-7A9DE318F99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{442E9BAA-8256-47EE-953C-7A9DE318F99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{442E9BAA-8256-47EE-953C-7A9DE318F99D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B69FED86-484B-48CA-8C25-904E13CA4448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B69FED86-484B-48CA-8C25-904E13CA4448}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B69FED86-484B-48CA-8C25-904E13CA4448}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B69FED86-484B-48CA-8C25-904E13CA4448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4FC7867-CA17-4CB6-9B63-1A6FE3C7141E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4FC7867-CA17-4CB6-9B63-1A6FE3C7141E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4FC7867-CA17-4CB6-9B63-1A6FE3C7141E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4FC7867-CA17-4CB6-9B63-1A6FE3C7141E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D167858E-A438-44C4-8ECD-E95AD13A2438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D167858E-A438-44C4-8ECD-E95AD13A2438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D167858E-A438-44C4-8ECD-E95AD13A2438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D167858E-A438-44C4-8ECD-E95AD13A2438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AAFC436-00D9-4674-8105-7231F0496627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AAFC436-00D9-4674-8105-7231F0496627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AAFC436-00D9-4674-8105-7231F0496627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AAFC436-00D9-4674-8105-7231F0496627}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
