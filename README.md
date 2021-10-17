@@ -21,7 +21,7 @@
   <h3 align="center">Warframe API</h3>
 
   <p align="center">
-    Warframe API
+    Warframe API Reader
     <br />
     <a href="https://github.com/iwan0129/WarframeAPI"><strong>Explore the docs »</strong></a>
     <br />
