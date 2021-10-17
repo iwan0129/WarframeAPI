@@ -19,7 +19,7 @@ namespace WarframeAPI
         {
             try
             {
-                JsonDocument jsonDocument = JsonDocument.Parse(json);
+                using JsonDocument jsonDocument = JsonDocument.Parse(json);
 
                 Type type = typeof(T);
 
@@ -57,7 +57,7 @@ namespace WarframeAPI
         {
             try
             {
-                JsonDocument jsonDocument = JsonDocument.Parse(json);
+                using JsonDocument jsonDocument = JsonDocument.Parse(json);
 
                 Type type = typeof(T);
 
