@@ -18,10 +18,10 @@
   </a>
   -->
   
-  <h3 align="center">Password Generator</h3>
+  <h3 align="center">Warframe API</h3>
 
   <p align="center">
-    Generates Passwords and SerialKeys
+    Warframe API
     <br />
     <a href="https://github.com/iwan0129/WarframeAPI"><strong>Explore the docs »</strong></a>
     <br />
