@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WarframeAPI;
+using WarframeAPI.GameData;
 using WarframeAPI.GameEvents;
 
 namespace UnitTests
@@ -35,6 +36,38 @@ namespace UnitTests
         public void TryReadWithEndpointTest()
         {
             bool result = API.TryRead(out Nightwave nightWave, endPoint: "nightwave");
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ReadArrayTest()
+        {
+            GlobalUpgrade[] globalUpgrades = API.Read<GlobalUpgrade[]>();
+
+            Assert.IsTrue(globalUpgrades != null);
+        }
+
+        [TestMethod]
+        public void TryReadArrayTest()
+        {
+            bool result = API.TryRead(out GlobalUpgrade[] globalUpgrades);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ReadArrayWithEndpointTest()
+        {
+            GlobalUpgrade[] globalUpgrades = API.Read<GlobalUpgrade[]>(endPoint: "globalUpgrades");
+
+            Assert.IsTrue(globalUpgrades != null);
+        }
+
+        [TestMethod]
+        public void TryReadArrayWithEndpointTest()
+        {
+            bool result = API.TryRead(out GlobalUpgrade[] globalUpgrades, endPoint: "globalUpgrades");
 
             Assert.IsTrue(result);
         }

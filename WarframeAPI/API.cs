@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Text.Json;
 using WarframeAPI.Utilities;
 
@@ -20,7 +21,15 @@ namespace WarframeAPI
             {
                 JsonDocument jsonDocument = JsonDocument.Parse(json);
 
-                string jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
+                Type type = typeof(T);
+
+                string jsonData = jsonDocument.RootElement.ValueKind switch
+                {
+                    JsonValueKind.Array => jsonDocument.RootElement.GetRawText(),
+                    _ => type.IsArray
+                    ? jsonDocument.GetPropertyJson(type.GetElementType().Name)
+                    : jsonDocument.RootElement.GetRawText()
+                };
 
                 return JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
             }
@@ -50,7 +59,15 @@ namespace WarframeAPI
             {
                 JsonDocument jsonDocument = JsonDocument.Parse(json);
 
-                string jsonData = jsonDocument.GetPropertyJson(typeof(T).Name) ?? jsonDocument.RootElement.GetRawText();
+                Type type = typeof(T);
+
+                string jsonData = jsonDocument.RootElement.ValueKind switch
+                {
+                    JsonValueKind.Array => jsonDocument.RootElement.GetRawText(),
+                    _ => type.IsArray
+                    ? jsonDocument.GetPropertyJson(type.GetElementType().Name)
+                    : jsonDocument.RootElement.GetRawText()
+                };
 
                 data = JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
 

@@ -7,18 +7,15 @@ namespace WarframeAPI.Utilities
     {
         public static string GetPropertyJson(this JsonDocument jsonDocument, string propertyName)
         {
-            if (jsonDocument.RootElement.ValueKind == JsonValueKind.Object)
+            JsonElement.ObjectEnumerator jsonEnumerator = jsonDocument.RootElement.EnumerateObject();
+
+            while (jsonEnumerator.MoveNext())
             {
-                JsonElement.ObjectEnumerator jsonEnumerator = jsonDocument.RootElement.EnumerateObject();
+                JsonProperty jsonProperty = jsonEnumerator.Current;
 
-                while (jsonEnumerator.MoveNext())
+                if (jsonProperty.Name.StartsWith(propertyName, StringComparison.OrdinalIgnoreCase))
                 {
-                    JsonProperty jsonProperty = jsonEnumerator.Current;
-
-                    if (jsonProperty.Name.StartsWith(propertyName, StringComparison.OrdinalIgnoreCase))
-                    {
-                        return jsonProperty.Value.GetRawText();
-                    }
+                    return jsonProperty.Value.GetRawText();
                 }
             }
 
