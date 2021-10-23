@@ -1,4 +1,5 @@
 ﻿using System;
+using WarframeAPI.GameData;
 
 namespace WarframeAPI.GameEvents
 {
@@ -18,7 +19,7 @@ namespace WarframeAPI.GameEvents
 
         public string Location { get; set; }
 
-        public string[] Inventory { get; set; }
+        public VoidTraderItem[] Inventory { get; set; }
 
         public string PsId { get; set; }
 
