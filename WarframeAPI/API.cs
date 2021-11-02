@@ -15,86 +15,43 @@ namespace WarframeAPI
             PropertyNameCaseInsensitive = true
         };
 
-        public static T Read<T>(string json)
+        public static T Parse<T>(string json)
         {
-            try
+            using JsonDocument jsonDocument = JsonDocument.Parse(json);
+
+            Type type = typeof(T);
+
+            string jsonData = (jsonDocument.RootElement.ValueKind switch
             {
-                using JsonDocument jsonDocument = JsonDocument.Parse(json);
+                JsonValueKind.Array => jsonDocument.RootElement,
+                _ => jsonDocument.GetPropertyJson(type.GetElementType()?.Name ?? type.Name) ?? jsonDocument.RootElement
+            }).GetRawText();
 
-                Type type = typeof(T);
-
-                string jsonData = jsonDocument.RootElement.ValueKind switch
-                {
-                    JsonValueKind.Array => jsonDocument.RootElement.GetRawText(),
-                    _ => type.IsArray
-                    ? jsonDocument.GetPropertyJson(type.GetElementType().Name)
-                    : jsonDocument.RootElement.GetRawText()
-                };
-
-                return JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
-            }
-            catch
-            {
-                return default;
-            }
+            return JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
         }
 
         public static T Read<T>(GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
         {
-            try
-            {
-                using WebClient client = new();
+            using WebClient client = new();
 
-                return Read<T>(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"));
-            }
-            catch
-            {
-                return default;
-            }
-        }
+            string json = client.DownloadString($"{Url}/{gamePlatform}/{endPoint}");
 
-        public static bool TryRead<T>(string json, out T data)
-        {
-            try
-            {
-                using JsonDocument jsonDocument = JsonDocument.Parse(json);
-
-                Type type = typeof(T);
-
-                string jsonData = jsonDocument.RootElement.ValueKind switch
-                {
-                    JsonValueKind.Array => jsonDocument.RootElement.GetRawText(),
-                    _ => type.IsArray
-                    ? jsonDocument.GetPropertyJson(type.GetElementType().Name)
-                    : jsonDocument.RootElement.GetRawText()
-                };
-
-                data = JsonSerializer.Deserialize<T>(jsonData, JsonOptions);
-
-                return true;
-            }
-            catch
-            {
-                data = default;
-
-                return false;
-            }
+            return !string.IsNullOrEmpty(json)
+                ? Parse<T>(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"))
+                : default;
         }
 
         public static bool TryRead<T>(out T data, GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
         {
-            try
-            {
-                using WebClient client = new();
+            using WebClient client = new();
 
-                return TryRead(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"), out data);
-            }
-            catch
-            {
-                data = default;
+            string json = client.DownloadString($"{Url}/{gamePlatform}/{endPoint}");
 
-                return false;
-            }
+            data = !string.IsNullOrEmpty(json)
+                ? Parse<T>(json)
+                : default;
+
+            return !data.Equals(Nullable.GetUnderlyingType(typeof(T)) != null ? null : default);
         }
     }
 }
