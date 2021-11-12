@@ -11,7 +11,9 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)API.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\WorldBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\AlertMission.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\ConclaveChallenge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameData\CountedItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\DailyDeal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\Event.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\Fissure.cs" />
@@ -21,7 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameData\InterimStep.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\Invasion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\InvasionFaction.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GameData\InvasionItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\InvasionReward.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\Mission.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\MissionVariant.cs" />
@@ -32,6 +33,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameData\SyndicateJob.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\SyndicateMission.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameData\VoidTraderItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameEvents\Alert.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameEvents\Arbitration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameEvents\ConstructionProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameEvents\Nightwave.cs" />

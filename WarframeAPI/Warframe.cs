@@ -13,6 +13,8 @@ namespace WarframeAPI
 
         public News[] News { get; set; }
 
+        public Alert[] Alerts { get; set; }
+
         public Event[] Events { get; set; }
 
         public Sortie Sortie { get; set; }

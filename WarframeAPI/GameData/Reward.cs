@@ -4,7 +4,7 @@
     {
         public string[] Items { get; set; }
 
-        public string[] CountedItems { get; set; }
+        public CountedItem[] CountedItems { get; set; }
 
         public int Credits { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace WarframeAPI.GameData
 {
-    public class InvasionItem
+    public class CountedItem
     {
         public int Count { get; set; }
 
