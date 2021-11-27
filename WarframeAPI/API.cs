@@ -37,7 +37,7 @@ namespace WarframeAPI
             string json = client.DownloadString($"{Url}/{gamePlatform}/{endPoint}");
 
             return !string.IsNullOrEmpty(json)
-                ? Parse<T>(client.DownloadString($"{Url}/{gamePlatform}/{endPoint}"))
+                ? Parse<T>(json)
                 : default;
         }
 
