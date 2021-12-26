@@ -36,9 +36,7 @@ namespace WarframeAPI
 
             string json = client.DownloadString($"{Url}/{gamePlatform}/{endPoint}");
 
-            return !string.IsNullOrEmpty(json)
-                ? Parse<T>(json)
-                : default;
+            return !string.IsNullOrEmpty(json) ? Parse<T>(json) : default;
         }
 
         public static bool TryRead<T>(out T data, GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
@@ -47,11 +45,9 @@ namespace WarframeAPI
 
             string json = client.DownloadString($"{Url}/{gamePlatform}/{endPoint}");
 
-            data = !string.IsNullOrEmpty(json)
-                ? Parse<T>(json)
-                : default;
+            data = !string.IsNullOrEmpty(json) ? Parse<T>(json) : default;
 
-            return !data.Equals(Nullable.GetUnderlyingType(typeof(T)) != null ? null : default);
+            return !data.Equals(default(T));
         }
     }
 }
