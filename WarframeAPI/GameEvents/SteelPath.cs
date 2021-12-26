@@ -13,7 +13,7 @@ namespace WarframeAPI.GameEvents
 
         public SteelPathItem[] Rotation { get; set; }
 
-        public SteelPathItem[] evergreens { get; set; }
+        public SteelPathItem[] Evergreens { get; set; }
 
         public Incursions Incursions { get; set; }
     }
