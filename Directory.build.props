@@ -1,0 +1,5 @@
+<Project>
+ <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.csproj'">
+   <LangVersion>9.0</LangVersion>
+ </PropertyGroup>
+</Project>
