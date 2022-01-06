@@ -15,9 +15,9 @@ namespace WarframeAPI.GameData
 
         public bool Active { get; set; }
 
-        public int MaximumScore { get; set; }
+        public int? MaximumScore { get; set; }
 
-        public int CurrentScore { get; set; }
+        public int? CurrentScore { get; set; }
 
         public object SmallInterval { get; set; }
 
@@ -37,7 +37,7 @@ namespace WarframeAPI.GameData
 
         public bool Expired { get; set; }
 
-        public int Health { get; set; }
+        public double? Health { get; set; }
 
         public InterimStep[] InterimSteps { get; set; }
 
