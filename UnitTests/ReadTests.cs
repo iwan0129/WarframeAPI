@@ -16,6 +16,14 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void ReadAsyncTest()
+        {
+            Warframe warframe = API.ReadAsync<Warframe>().Result;
+
+            Assert.IsTrue(warframe != default);
+        }
+
+        [TestMethod]
         public void ReadWithEndpointTest()
         {
             Nightwave nightWave = API.Read<Nightwave>(endPoint: "nightwave");

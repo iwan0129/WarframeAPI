@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Text.Json;
+using System.Threading.Tasks;
 using WarframeAPI.Utilities;
 
 namespace WarframeAPI
@@ -35,6 +36,15 @@ namespace WarframeAPI
             using WebClient client = new();
 
             string json = client.DownloadString($"{Url}/{gamePlatform}/{endPoint}");
+
+            return !string.IsNullOrEmpty(json) ? Parse<T>(json) : default;
+        }
+
+        public static async Task<T> ReadAsync<T>(GamePlatform gamePlatform = GamePlatform.Pc, string endPoint = "")
+        {
+            using WebClient client = new();
+
+            string json = await client.DownloadStringTaskAsync($"{Url}/{gamePlatform}/{endPoint}");
 
             return !string.IsNullOrEmpty(json) ? Parse<T>(json) : default;
         }
