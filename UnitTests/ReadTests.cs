@@ -1,82 +1,37 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WarframeAPI;
-using WarframeAPI.GameEvents;
-
-namespace UnitTests
+﻿namespace UnitTests
 {
-    [TestClass]
     public class ReadTests
     {
-        [TestMethod]
-        public void ReadTest()
+        [Fact]
+        public async void ReadTest()
         {
-            Warframe warframe = API.Read<Warframe>();
+            Warframe warframe = await API.Read<Warframe>();
 
-            Assert.IsTrue(warframe != default);
+            Assert.True(warframe != default);
         }
 
-        [TestMethod]
-        public void ReadAsyncTest()
+        [Fact]
+        public async void ReadWithEndpointTest()
         {
-            Warframe warframe = API.ReadAsync<Warframe>().Result;
+            Nightwave nightWave = await API.Read<Nightwave>(endPoint: "nightwave");
 
-            Assert.IsTrue(warframe != default);
+            Assert.True(nightWave != default);
         }
 
-        [TestMethod]
-        public void ReadWithEndpointTest()
+        [Fact]
+        public async void ReadArrayTest()
         {
-            Nightwave nightWave = API.Read<Nightwave>(endPoint: "nightwave");
+            News[] news = await API.Read<News[]>();
 
-            Assert.IsTrue(nightWave != default);
+            Assert.True(news != null);
         }
 
-        [TestMethod]
-        public void TryReadTest()
+        [Fact]
+        public async void ReadArrayWithEndpointTest()
         {
-            bool result = API.TryRead(out Nightwave nightWave);
+            News[] news = await API.Read<News[]>(endPoint: "news");
 
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void TryReadWithEndpointTest()
-        {
-            bool result = API.TryRead(out Nightwave nightWave, endPoint: "nightwave");
-
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void ReadArrayTest()
-        {
-            News[] news = API.Read<News[]>();
-
-            Assert.IsTrue(news != null);
-        }
-
-        [TestMethod]
-        public void TryReadArrayTest()
-        {
-            bool result = API.TryRead(out News[] globalUpgrades);
-
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void ReadArrayWithEndpointTest()
-        {
-            News[] news = API.Read<News[]>(endPoint: "news");
-
-            Assert.IsTrue(news != null);
-        }
-
-        [TestMethod]
-        public void TryReadArrayWithEndpointTest()
-        {
-            bool result = API.TryRead(out News[] news, endPoint: "news");
-
-            Assert.IsTrue(result);
+            Assert.True(news != null);
         }
     }
 }
