@@ -66,7 +66,7 @@ namespace WarframeAPI
                 throw new Exception(responseContent);
             }
 
-            return !string.IsNullOrEmpty(responseContent) ? Parse<T>(responseContent) : default;
+            return Parse<T>(responseContent);
         }
     }
 }
